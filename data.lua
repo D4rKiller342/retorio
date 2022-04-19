@@ -1,11 +1,13 @@
 --Credit: [EnigmaticAussie - Rubber Ducky] for the ore gen part of the mod
 
 if not rog then
-    rog = {}
-  end
+  rog = {}
+end
 
-require('functions.ore-gen')
-require("configs.ore-configs");
+require("prototypes.items")
+require("prototypes.recipe")
+require("functions.ore-gen")
+require("configs.place-ore-configs");
 
 for _, ore in pairs(rog.ore) do
     local ore_to_place = rog.returnore(ore)
