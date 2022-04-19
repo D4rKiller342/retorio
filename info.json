@@ -1,9 +1,9 @@
 {
-    "name": "rogue-custom-ores",
-    "version": "0.0.1",
-    "title": "Rogue Custom ores",
-    "author": "Rogue_tale_teller",
-    "factorio_version": "1.1",
-    "dependencies": ["base >= 1.1"],
-    "description": "add a new ores"
-  }
+  "name": "retorio",
+  "version": "0.0.1",
+  "title": "Re: Torio",
+  "author": "Rogue_tale_teller",
+  "factorio_version": "1.1",
+  "dependencies": ["base >= 1.1"],
+  "description": "add a new feature and complexity to factorio"
+}
