@@ -1,0 +1,10 @@
+---------------------------------------------------------------------------------------------------
+Version: 0.0.1
+Date: 2022.04.20
+  info:
+    - Initial release
+  Features:
+    - Nano ore
+    - Nano plate
+  Locale:
+    - English
