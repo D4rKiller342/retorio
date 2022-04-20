@@ -7,6 +7,8 @@ end
 require("prototypes.items")
 require("prototypes.recipe")
 require("functions.ore-gen")
+--require("__roglib__.functions.ore-gen")
+
 require("configs.place-ore-configs");
 
 for _, ore in pairs(rog.ore) do
@@ -16,6 +18,7 @@ for _, ore in pairs(rog.ore) do
         {
           type = 'autoplace-control',
           name = ore.name,
+          localised_name = {'', '[entity=' .. ore.name .. '] ', {'autoplace-control-names.' .. ore.name}},
           richness = true,
           order = ore.order,
           category = 'resource'
