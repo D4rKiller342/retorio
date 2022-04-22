@@ -4,16 +4,24 @@ if not rog then
   rog = {}
 end
 
-require("prototypes.items")
-
+--require("prototypes.items")
 --require("prototypes.recipe")
 
+require("functions.item-constructor")
 require("functions.recipe-maker")
 require("functions.ore-gen")
 
 --require("__roglib__.functions.ore-gen")
+require("configs.items-configs")
 require("configs.recipe-configs")
 require("configs.place-ore-configs");
+
+for _, item in pairs(rog.item) do
+  local item_to_add = rog.returnItem(item)
+  log ( serpent.block (item_to_add) )
+  data:extend({item_to_add})
+  
+end 
 
 for _, ore in pairs(rog.ore) do
     local ore_to_place = rog.returnore(ore)
