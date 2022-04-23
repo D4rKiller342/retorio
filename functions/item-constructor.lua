@@ -9,12 +9,6 @@
     durability_description_value = "description.science-pack-remaining-amount-value"
   },
 ]]
---[[ ---- Fuel ----
-    fuel_category = "chemical",
-    fuel_value = "12MJ",
-    fuel_acceleration_multiplier = 1.2,
-    fuel_top_speed_multiplier = 1.05,
-]]
 function rog.returnItem(item)
     local baseItem = {
         type = "item",
@@ -32,10 +26,35 @@ function rog.returnItem(item)
         table.insert(baseItem, pictures_var) 
     end
 
+    if item.durability then
+        local dura_var = {
+            localised_description = item.localised_description,
+            durability = item.durability or 1,
+            durability_description_key = item.durability_description_key,
+            durability_description_value = item.durability_description_value
+        }
+        table.insert(baseItem, dura_var) 
+    end
+
     if item.place_result then
         local place_result_var = {place_result = item.place_result}
         table.insert(baseItem, place_result_var) 
     end
 
+    if item.fuel_category then
+        local fuel_var = {
+            fuel_category = item.fuel_category or "chemical", --default to "chemical"
+            fuel_value = item.fuel_value or "12MJ", --default to same has coal
+        }
+        
+        if item.fuel_acceleration_multiplier then
+            local acc_var = {
+                fuel_acceleration_multiplier = item.fuel_acceleration_multiplier or 1.2, --same solid fuel
+                fuel_top_speed_multiplier = item.fuel_top_speed_multiplier or 1.05,   --same solid fuel
+                table.insert(fuel_var, acc_var)
+            }
+        end
+        table.insert(baseItem, fuel_var)
+    end
     return baseItem    
 end
