@@ -9,11 +9,13 @@ end
 
 require("functions.item-constructor")
 require("functions.recipe-maker")
+require("functions.technology-constructor")
 require("functions.ore-gen")
 
 --require("__roglib__.functions.ore-gen")
 require("configs.items-configs")
 require("configs.recipe-configs")
+require("configs.technology-configs")
 require("configs.place-ore-configs");
 
 for _, item in pairs(rog.item) do
