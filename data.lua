@@ -18,6 +18,7 @@ require("configs.place-ore-configs");
 
 for _, item in pairs(rog.item) do
   local item_to_add = rog.returnItem(item)
+  log ( serpent.block (item_to_add) )
   data:extend({item_to_add})
   
 end 
@@ -38,6 +39,7 @@ for _, ore in pairs(rog.ore) do
       }
     )
 end  
+
 
 for _, recipe in pairs(rog.recipe) do
   local recipie_to_add = rog.recipereturn(recipe)

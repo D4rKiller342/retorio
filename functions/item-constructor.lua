@@ -11,50 +11,39 @@
 ]]
 function rog.returnItem(item)
     local baseItem = {
-        type = "item",
+        type = item.type or "item",
         name = item.name,
         icon = item.icon,
         icon_size = item.icon_size or 64, 
         icon_mipmaps = item.icon_mipmaps or 4,
         subgroup = item.subgroup,
-        order = item.order or a,
+        order = item.order or "a",
         stack_size = item.stack_size or 100,
     }
 
     if item.pictures then
-        local pictures_var = {pictures = item.pictures}
-        table.insert(baseItem, pictures_var) 
+        baseItem.pictures = item.pictures
     end
 
     if item.durability then
-        local dura_var = {
-            localised_description = item.localised_description,
-            durability = item.durability or 1,
-            durability_description_key = item.durability_description_key,
-            durability_description_value = item.durability_description_value
-        }
-        table.insert(baseItem, dura_var) 
+        baseItem.localised_description = item.localised_description
+        baseItem.durability = item.durability or 1
+        baseItem.durability_description_key = item.durability_description_key
+        baseItem.durability_description_value = item.durability_description_value
     end
 
     if item.place_result then
-        local place_result_var = {place_result = item.place_result}
-        table.insert(baseItem, place_result_var) 
+        baseItem.place_result = item.place_result
     end
 
     if item.fuel_category then
-        local fuel_var = {
-            fuel_category = item.fuel_category or "chemical", --default to "chemical"
-            fuel_value = item.fuel_value or "12MJ", --default to same has coal
-        }
-        
+        baseItem.fuel_category = item.fuel_category
+        baseItem.fuel_value = item.fuel_value or "12MJ"
+
         if item.fuel_acceleration_multiplier then
-            local acc_var = {
-                fuel_acceleration_multiplier = item.fuel_acceleration_multiplier or 1.2, --same solid fuel
-                fuel_top_speed_multiplier = item.fuel_top_speed_multiplier or 1.05,   --same solid fuel
-                table.insert(fuel_var, acc_var)
-            }
+            baseItem.fuel_acceleration_multiplier = item.fuel_acceleration_multiplier
+            baseItem.fuel_top_speed_multiplier = item.fuel_top_speed_multiplier or 1.05   --same solid fuel
         end
-        table.insert(baseItem, fuel_var)
     end
     return baseItem    
 end
